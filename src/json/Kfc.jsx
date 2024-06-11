@@ -1,7 +1,4 @@
-/* eslint-disable react/prop-types */
-import CardIcon1 from "../assets/Improved Data Quality and Integrity.webp";
-import "./utils.css";
-const KFC = [
+export const KFC = [
     {
         "card": {
             "card": {
@@ -7245,38 +7242,5 @@ const KFC = [
                 }
             }
         }
-    }
+    },
 ]
-const Card = () => {
-    console.log("this is KFCdata", KFC);
-    return (
-        <>
-            <div className='container'>
-                <div className="all-Boxes" id="Bhoverbox">
-                    <div className="Bhoverboxrow">
-                        <div className="BhoverboxrowMain">
-                            <div className="card">
-                                <div className="card-body">
-                                    {/* <h3>{KFC.info.name}</h3> */}
-                                    <span className='IconHoverRapper'>
-                                        <img className='IconHoverImg' src={CardIcon1} alt='Cardimg'></img></span>
-                                    <p className="card-text">
-                                        {/* <ul>
-                                            <li>{KFC.info.cuisines.join(", ")}</li>
-                                            <li><img src={"https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/2b4f62d606d1b2bfba9ba9e5386fabb7"} width="100%" height="100%"></img>   </li>
-                                            <li>{KFC.info.totalRatingsString}</li>
-                                            <li>{KFC.info.areaName}</li>
-                                        </ul> */}
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-
-
-                    </div>
-                </div>
-            </div>
-        </>
-    )
-}
-export default Card;

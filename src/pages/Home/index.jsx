@@ -1,7 +1,10 @@
+import Card from "../../utils/Card";
+ import { KFC } from "../../json/Kfc";
 const Home = () => {
     return (
         <>
-        <h2>this is home page</h2>
+        <Card/>
+        {/* <Card Name="Biryani" Deaitls="2"/> */}
         </>
     )
 }
