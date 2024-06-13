@@ -1,7 +1,8 @@
 import "./utils.css";
-
+import PropTypes from 'prop-types';
 
 const Card = (props) => {
+
     console.log("this is log", props.KFCdata[0]);
     return (
         <>
@@ -31,3 +32,10 @@ const Card = (props) => {
     )
 }
 export default Card;
+
+Card.propTypes = {
+    KFCdata: PropTypes.number.isRequired
+}
+Card.defaultProps = {
+    KFCdata: 'Stranger'
+};
