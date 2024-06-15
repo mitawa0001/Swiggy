@@ -1,9 +1,14 @@
-import Card from "../../utils/Card";
-import KFC  from "../../json/Kfc";
+import Card from "../../components/Cards/ResCard";
+import ResData  from "../../utils/mockdata";
+import Header from "../../components/layout/Header";
+
+
+
 const Home = () => {
         return (
         <>
-            <Card KFCdata={KFC} />
+            <Header/>
+            <Card ResData={ResData} />
         </>
     )
 }
