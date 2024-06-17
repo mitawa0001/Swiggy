@@ -1,10 +1,7 @@
-.card {
-    -webkit-box-shadow: 0 6px 8px rgba(0, 0, 0, 0.1);
-    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.1);
-    background-color: #FFF;
-    border-radius: 6px;
-    margin: 40px auto;
+.Simmer-card {
     display: flex;
+    background-color: #FFF; 
+    flex-direction: row;
     flex-wrap: wrap;
 }
 .shimmerBG {
