@@ -1,15 +1,12 @@
 import Card from "../../components/Cards/ResCard";
 import ResData  from "../../utils/mockdata";
-import Header from "../../components/layout/Header";
-
-
+import Layout from "../../components/layout/Layout";
 
 const Home = () => {
         return (
         <>
-            <Header/>
             <Card ResData={ResData} />
         </>
     )
 }
-export default Home;
+export default Layout(Home);

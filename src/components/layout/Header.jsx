@@ -25,12 +25,8 @@ const Header = () => {
                             navbarScroll
                         >
                             <Nav.Link as={Link} to="/">Home</Nav.Link>
-                            <Nav.Link as={Link} to="/about">About</Nav.Link>
-                            <Nav.Link as={Link} to="/themeforestcontact">Contact</Nav.Link>
-                            <Nav.Link as={Link} to="/themeforestblog">Blog</Nav.Link>
-                            <Nav.Link as={Link} to="/Reduxsample">User List</Nav.Link>
-                            <Nav.Link as={Link} to="/formNew">Form</Nav.Link>
-                            <Nav.Link as={Link} to="/blog">Blog</Nav.Link>
+                            <Nav.Link as={Link} to="/casestudy">CaseStudy</Nav.Link>
+                            
                         </Nav>
                     </Navbar.Collapse>
                     <form className="d-flex">

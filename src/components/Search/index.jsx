@@ -1,14 +1,17 @@
 import { useState } from "react";
 import "./search.css";
 
-export const Search = () => {
+export const Search = (props) => {
     const [restoSearch, setRestoSearch] = useState("");
-    
+
 
     const handlerestoSearch = () => {
-        console.log(restoSearch);
+        const SearchFilter = props.resData.filter(
+            (res) => res.info.name.toLowerCase().includes(restoSearch.toLowerCase())
+        )
+        setRestoSearch(SearchFilter)
+        console.log(resData)    
     }
-
     return (
         <>
             <div className="d-flex">
