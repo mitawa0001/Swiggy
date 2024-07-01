@@ -3,7 +3,7 @@ import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import { Outlet, Link } from "react-router-dom";
 import Swiggy from "../../assets/sw.svg";
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 const Header = () => {
     const [loginbtn, setloginbtn] = useState("Login");
@@ -11,7 +11,11 @@ const Header = () => {
     const handleLoginbtn = () => {
         loginbtn == "Login" ? setloginbtn("Logout") : setloginbtn("Login")
     };
+    console.log(loginbtn);
 
+    useEffect(() => {
+        console.log("use effect");
+    }, [])
     return (
         <>
             <Navbar expand="lg" className="navbar sticky-top navbar-expand-lg bg-light">
@@ -26,7 +30,7 @@ const Header = () => {
                         >
                             <Nav.Link as={Link} to="/">Home</Nav.Link>
                             <Nav.Link as={Link} to="/casestudy">CaseStudy</Nav.Link>
-                            
+
                         </Nav>
                     </Navbar.Collapse>
                     <form className="d-flex">

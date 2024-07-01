@@ -6,6 +6,7 @@ const Layout = (Component) => (props) => {
         <>
             <Header />
             <Component {...props} />
+            
         </>
 
     )
