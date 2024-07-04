@@ -1,0 +1,36 @@
+#ITInfrastructureChallenges .fusion-layout-column .title-heading-left::before {
+    content: "";
+    background: url("/wp-content/uploads/2024/06/Mask-group.webp");
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 28px;
+    width: 28px;
+}
+
+
+
+#wpsm-carousel-two-4445 .owl-item .wpsm_testi_content::before{
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    background: url(/wp-content/uploads/2024/06/unnamed-file.webp);
+    background-repeat: no-repeat;
+    height: 80px;
+    width: 90px;
+    z-index: 999999999999;
+}
+
+#wpsm-carousel-two-4445 .owl-item .wpsm_testimonial  .wpsm_testimonial-review::after{
+    position: absolute;
+    content: "";
+    top: 2px;
+    left: 2px;
+    background: url(/wp-content/uploads/2024/06/Group-1762204.webp);
+    background-repeat: no-repeat;
+    height: 80px;
+    width: 90px;
+    z-index: 999999999999;
+}

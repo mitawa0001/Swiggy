@@ -1,16 +1,53 @@
+.resto-card-head {
+  margin: 10px 0px;
+  font-family: 'Gilroy-Light', sans-serif;
+  font-weight: 800;
+  font-size: 24px;
+  line-height: 28px;
+  letter-spacing: -0.4px;
+  color: rgba(2, 6, 12, 0.92);
+}
+.filter-sort{
+  margin: 2rem 0rem;
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+}
+.filter-sort li{
+  margin: 0rem 1rem;
+}
+.resto-filter-btn {
+  color: rgba(2, 6, 12, 0.75);
+  display: flex;
+  -webkit-box-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  justify-content: center;
+  border-radius: 18px;
+  background-color: rgb(255, 255, 255);
+  border: 1px solid rgb(226, 226, 231);
+  padding: 8px 12px;
+  width: auto;
+  box-shadow: rgba(2, 6, 12, 0.04) 0px 2px 12px;
+  transition: background-color 0.1s ease-in 0s, border-color 0.1s ease-in 0s, box-shadow 0.1s ease-in 0s, width 0.2s cubic-bezier(0.65, 0, 0.35, 1) 0s;
+}
+
 .Bhoverboxrow {
   display: flex;
   flex-wrap: wrap;
 }
-.Bhoverboxrow > div {
+
+.Bhoverboxrow>div {
   padding: 1rem;
 }
+
 #Bhoverbox .card {
   border: solid 1px #C9C9C9;
   border-radius: 4px 4px 4px 64px;
   overflow: hidden;
   width: 100%;
 }
+
 #Bhoverbox .card:hover .IconHoverRapper {
   background-color: #6e61c0;
   color: #fff;
@@ -79,6 +116,7 @@
   grid-template: 1fr / repeat(2, 1fr);
   grid-gap: 25px;
 }
+
 .card1 {
   position: relative;
   max-width: 100%;
@@ -100,6 +138,7 @@
   aspect-ratio: 3 / 2;
   object-fit: cover;
 }
+
 .card__data {
   transition: all 0.3s ease-out 0.1s;
   height: auto;
@@ -117,6 +156,7 @@
   font-size: 22px;
   font-weight: 800;
 }
+
 .card__info p {
   font-size: 16px;
   line-height: 22px;
@@ -168,6 +208,7 @@
 .card1:hover .card__data {
   transform: translateY(-5px);
 }
+
 .card1:hover {
   box-shadow: 0 0px 10px 0px rgba(0, 0, 0, 0.1);
 }

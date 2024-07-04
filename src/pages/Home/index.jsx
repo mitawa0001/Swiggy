@@ -1,10 +1,12 @@
-import Card from "../../utils/Card";
-import KFC  from "../../json/Kfc";
+import Card from "../../components/Cards/ResCard";
+import ResData  from "../../utils/mockdata";
+import Layout from "../../components/layout/Layout";
+
 const Home = () => {
         return (
         <>
-            <Card KFCdata={KFC} />
+            <Card ResData={ResData} />
         </>
     )
 }
-export default Home;
+export default Layout(Home);
