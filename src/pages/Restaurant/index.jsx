@@ -11,10 +11,10 @@ const Restaurant = () => {
     }, [])
 
     const fatchMenu = async () => {
-        const data = await fetch("https://www.swiggy.com/dapi/restaurants/list/v5?lat=30.7046486&lng=76.71787259999999&collection=83639&tags=layout_CCS_Biryani&sortBy=&filters=&type=rcv2&offset=0&page_type=null");
+        const data = await fetch("https://www.swiggy.com/dapi/restaurants/list/v5?lat=30.7046486&lng=76.71787259999999&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING");
         const json = await data.json();
-        const RestoCards = json?.data?.cards[4]?.card?.card?.info;
-        console.log(json?.data);
+        const RestoCards = json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants[0]?.info
+        console.log("this is card info", json?.data);
         setResInfo(RestoCards);
     }
 

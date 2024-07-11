@@ -46,6 +46,7 @@ const ResCard = () => {
             const fetchedData = json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants || [];
             setResData(fetchedData);
             setFilteredlistResData(fetchedData);
+            console.log(fetchedData);
         } catch (error) {
             console.error("Failed to fetch data", error);
         }
@@ -93,7 +94,7 @@ const ResCard = () => {
                     <div className="Bhoverboxrow">
                         {filteredlistResData.map((item, id) => (
                             <div className="col-lg-3 col-md-6 col-sm-12 mt-5" key={id}>
-                                <article className="card1">
+                                <article className="card1" >
                                     <img className="card__image" src={CDN_Link + item.info.cloudinaryImageId} alt={item.info.name} />
                                     <div className="card__data">
                                         <div className="card__info">
