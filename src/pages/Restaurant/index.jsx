@@ -11,28 +11,38 @@ const Restaurant = () => {
     }, [])
 
     const fatchMenu = async () => {
-        const data = await fetch("https://www.swiggy.com/dapi/restaurants/list/v5?lat=30.7046486&lng=76.71787259999999&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING");
+        const data = await fetch("https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=30.7046486&lng=76.71787259999999&restaurantId=50790&catalog_qa=undefined&submitAction=ENTER");
         const json = await data.json();
-        const RestoCards = json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants[0]?.info
-        console.log("this is card info", json?.data);
+        const RestoCards = json?.data?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards[2]?.card?.card
+        console.log("this is card info", json?.data?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards[2]?.card?.card.itemCards);
         setResInfo(RestoCards);
     }
-
-    return ResInfo == null ? (<SimmerUi />) : (
+    if (ResInfo == null) return <SimmerUi />;
+    return (
         <>
             <div className="container my-5">
-                <h3 className="fw-bold my-4">{ResInfo.name}</h3>
+                {/* <h3 className="fw-bold my-4">{ResInfo.info.name}</h3> */}
                 <div className="resmain">
-                    <div className="thiEb">
+                    {/* <div className="thiEb">
                         <p className="fw-bold">{ResInfo.avgRatingString} ({ResInfo.totalRatingsString}  ratings) <span className="mx-2"> {ResInfo.costForTwo}</span></p>
                         <h5 ><b>Outlet  </b> <span className="mx-2">{ResInfo.areaName}</span></h5>
                         <p >{ResInfo.sla.slaString}</p>
                         <h3 >{ResInfo.sla.lastMileTravelString}</h3>
-                    </div>
+                    </div> */}
                 </div>
 
                 <h3 className="fw-bold my-4">Recommended </h3>
-
+                <ul>
+                    {
+                        ResInfo.itemCards?.map((item, index) => (
+                            <li key={index}>{item.card.info.name}</li>
+                        ))
+                    }
+                    {/* <li>{ResInfo.itemCards[0].card.info.name}</li>
+                    <li>{ResInfo.itemCards[1].card.info.name}</li>
+                    <li>{ResInfo.itemCards[2].card.info.name}</li>
+                    <li>{ResInfo.itemCards[3].card.info.name}</li> */}
+                </ul>
             </div>
         </>
     )
