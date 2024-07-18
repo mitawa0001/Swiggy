@@ -2,19 +2,24 @@ import { useEffect, useState } from "react";
 import Layout from "../../components/layout/Layout";
 import SimmerUi from "../../utils/SimmerUi";
 import "./style.css";
+import { useParams } from "react-router-dom";
+import { menu_API } from "../../utils/mockdata";
 
 const Restaurant = () => {
     const [ResInfo, setResInfo] = useState(null);
+
+    const { resid } = useParams();
+    console.log(resid);
 
     useEffect(() => {
         fatchMenu();
     }, [])
 
     const fatchMenu = async () => {
-        const data = await fetch("https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=30.7046486&lng=76.71787259999999&restaurantId=50790&catalog_qa=undefined&submitAction=ENTER");
+        const data = await fetch(menu_API + resid);
         const json = await data.json();
         const RestoCards = json?.data?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards[2]?.card?.card
-        console.log("this is card info", json?.data?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards[2]?.card?.card.itemCards);
+        console.log("This is item info", json?.data?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards[2]?.card?.card.itemCards);
         setResInfo(RestoCards);
     }
     if (ResInfo == null) return <SimmerUi />;
@@ -34,14 +39,10 @@ const Restaurant = () => {
                 <h3 className="fw-bold my-4">Recommended </h3>
                 <ul>
                     {
-                        ResInfo.itemCards?.map((item, index) => (
-                            <li key={index}>{item.card.info.name}</li>
+                        ResInfo.itemCards?.map((item, id) => (
+                            <li key={id}>{item.card.info.name} - {item.card.info.defaultPrice / 100 || item.card.info.finalPrice / 100 || item.card.info.price / 100}</li>
                         ))
                     }
-                    {/* <li>{ResInfo.itemCards[0].card.info.name}</li>
-                    <li>{ResInfo.itemCards[1].card.info.name}</li>
-                    <li>{ResInfo.itemCards[2].card.info.name}</li>
-                    <li>{ResInfo.itemCards[3].card.info.name}</li> */}
                 </ul>
             </div>
         </>

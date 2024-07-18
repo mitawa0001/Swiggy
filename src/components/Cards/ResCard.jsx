@@ -98,7 +98,7 @@ const ResCard = () => {
                     <div className="Bhoverboxrow">
                         {filteredlistResData.map((item, id) => (
                             <div className="col-lg-3 col-md-6 col-sm-12 mt-5" key={id}>
-                                <Link to={item.cta.link}>
+                                <Link to={"/restaurant/" + item.info.id} >
                                     <article className="card1">
                                         <img className="card__image" src={CDN_Link + item.info.cloudinaryImageId} alt={item.info.name} />
                                         <div className="card__data">
