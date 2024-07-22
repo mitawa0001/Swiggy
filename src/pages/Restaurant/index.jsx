@@ -4,6 +4,7 @@ import SimmerUi from "../../utils/SimmerUi";
 import "./style.css";
 import { useParams } from "react-router-dom";
 import { menu_API } from "../../utils/mockdata";
+import { CDN_Link } from "../../utils/mockdata";
 
 const Restaurant = () => {
     const [ResInfo, setResInfo] = useState(null);
@@ -37,13 +38,24 @@ const Restaurant = () => {
                 </div>
 
                 <h3 className="fw-bold my-4">Recommended </h3>
-                <ul>
-                    {
-                        ResInfo.itemCards?.map((item, id) => (
-                            <li key={id}>{item.card.info.name} - {item.card.info.defaultPrice / 100 || item.card.info.finalPrice / 100 || item.card.info.price / 100}</li>
-                        ))
-                    }
-                </ul>
+                {
+                    ResInfo.itemCards?.map((item, id) => (
+                        <div key={id} className="details-main">
+                            <div className="">
+                                <ul>
+                                    <li>{item.card.info.name} - {item.card.info.defaultPrice / 100 || item.card.info.finalPrice / 100 || item.card.info.price / 100}
+                                    </li>
+                                </ul>
+                                <div className="res-details-desc">
+                                    {item.card.info.description}
+                                </div>
+                            </div>
+                            <div>
+                                <img src={CDN_Link + item.card.info.imageId} height="144px" width="156px"/>
+                            </div>
+                        </div>
+                    ))
+                }
             </div>
         </>
     )
