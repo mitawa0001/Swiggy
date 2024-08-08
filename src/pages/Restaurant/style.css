@@ -1,0 +1,23 @@
+.resmain {
+    background: linear-gradient(rgb(255, 255, 255) -6.71%, rgb(235, 235, 242) 56.19%, rgb(223, 223, 231) 106.56%);
+    padding: 0px 16px 16px;
+    border-bottom-left-radius: 36px;
+    border-bottom-right-radius: 36px;
+}
+
+.thiEb {
+    border-radius: 20px;
+    border: 1px solid rgba(2, 6, 12, 0.15);
+    background: white;
+    box-shadow: rgba(0, 0, 0, 0.04) 0px 8px 16px 0px;
+    padding: 2rem;
+}
+.details-main{
+    border-bottom: solid 2px #e9e9e9;
+    display: flex;
+    justify-content: space-between;
+}
+.res-details-desc{
+    margin-bottom: 30px;
+    width: 60%;
+}

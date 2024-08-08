@@ -1,17 +1,26 @@
-import Button from 'react-bootstrap/Button';
 import Container from 'react-bootstrap/Container';
-import Form from 'react-bootstrap/Form';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
-import NavDropdown from 'react-bootstrap/NavDropdown';
+import { Outlet, Link } from "react-router-dom";
 import Swiggy from "../../assets/sw.svg";
+import { useEffect, useState } from 'react';
 
 const Header = () => {
+    const [loginbtn, setloginbtn] = useState("Login");
+
+    const handleLoginbtn = () => {
+        loginbtn == "Login" ? setloginbtn("Logout") : setloginbtn("Login")
+    };
+    console.log(loginbtn);
+
+    useEffect(() => {
+        console.log("use effect");
+    }, [])
     return (
         <>
-            <Navbar expand="lg" className="bg-body-tertiary">
+            <Navbar expand="lg" className="navbar sticky-top navbar-expand-lg bg-light">
                 <Container fluid>
-                    <Navbar.Brand href="#"><img src={Swiggy} alt='logo' width="100%"></img></Navbar.Brand>
+                    <Navbar.Brand as={Link} to="/"><img src={Swiggy} alt='logo' width="100%" height="100%" /></Navbar.Brand>
                     <Navbar.Toggle aria-controls="navbarScroll" />
                     <Navbar.Collapse id="navbarScroll">
                         <Nav
@@ -19,35 +28,20 @@ const Header = () => {
                             style={{ maxHeight: '100px' }}
                             navbarScroll
                         >
-                            <Nav.Link href="#action1">Home</Nav.Link>
-                            <Nav.Link href="#action2">Link</Nav.Link>
-                            <NavDropdown title="Link" id="navbarScrollingDropdown">
-                                <NavDropdown.Item href="#action3">Action</NavDropdown.Item>
-                                <NavDropdown.Item href="#action4">
-                                    Another action
-                                </NavDropdown.Item>
-                                <NavDropdown.Divider />
-                                <NavDropdown.Item href="#action5">
-                                    Something else here
-                                </NavDropdown.Item>
-                            </NavDropdown>
-                            <Nav.Link href="#" disabled>
-                                Link
-                            </Nav.Link>
+                            <Nav.Link as={Link} to="/">Home</Nav.Link>
+                            <Nav.Link as={Link} to="/casestudy">CaseStudy</Nav.Link>
+                            <Nav.Link as={Link} to="/restaurant/resid">Restaurant</Nav.Link>
+                            <Nav.Link as={Link} to="/about">About</Nav.Link>
                         </Nav>
-                        <Form className="d-flex">
-                            <Form.Control
-                                type="search"
-                                placeholder="Search"
-                                className="me-2"
-                                aria-label="Search"
-                            />
-                            <Button variant="outline-success">Search</Button>
-                        </Form>
                     </Navbar.Collapse>
+                    <form className="d-flex">
+                        <button className='btn btn-primary' type="button" onClick={handleLoginbtn}>{loginbtn}</button>
+                    </form>
                 </Container>
             </Navbar>
+            <Outlet />
         </>
-    )
-}
+    );
+};
+
 export default Header;
