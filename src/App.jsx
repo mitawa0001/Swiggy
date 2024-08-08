@@ -5,7 +5,8 @@ import "./App.css"
 import CaseStudy from './components/CaseStudy/CaseStudy';
 import Home from './pages/Home';
 import Restaurant from './pages/Restaurant';
-
+import About from "./pages/About/About";
+import AboutClass from './pages/About/AboutClass';
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
           <Routes>
             <Route index element={<Home />} />
             <Route exect path="casestudy" element={<CaseStudy />} />
+            <Route exect path="about" element={<AboutClass heading="About Swiggy"/>} />
             <Route exect path="restaurant/:resid" element={<Restaurant />} />
           </Routes>
         </Suspense>
