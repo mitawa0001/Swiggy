@@ -32,6 +32,7 @@ class AboutClass extends React.Component {
         );
     }
 }
+
 AboutClass.propTypes = {
     heading: PropTypes.string, // Specify the type of the 'heading' prop
 };
