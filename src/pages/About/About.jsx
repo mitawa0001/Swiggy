@@ -7,6 +7,7 @@ const About = (props) => {
             <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Atque facilis eaque fuga dolor
                 a, possimus veniam recusandae vero perspiciatis vitae culpa dignissimos, obcaecati tenetur magni, blanditiis deserunt. R
                 atione, consequatur ut!</p>
+            <h3>{props.city}there days</h3>
         </>
     )
 }
