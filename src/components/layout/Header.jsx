@@ -3,7 +3,7 @@ import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import { Outlet, Link } from "react-router-dom";
 import Swiggy from "../../assets/sw.svg";
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 
 const Header = () => {
     const [loginbtn, setloginbtn] = useState("Login");
@@ -11,11 +11,7 @@ const Header = () => {
     const handleLoginbtn = () => {
         loginbtn == "Login" ? setloginbtn("Logout") : setloginbtn("Login")
     };
-    console.log(loginbtn);
 
-    useEffect(() => {
-        console.log("use effect");
-    }, [])
     return (
         <>
             <Navbar expand="lg" className="navbar sticky-top navbar-expand-lg bg-light">
