@@ -16,7 +16,7 @@ function App() {
           <Routes>
             <Route index element={<Home />} />
             <Route exect path="casestudy" element={<CaseStudy />} />
-            <Route exect path="about" element={<AboutClass heading="About Swiggy" city="chandigarh"/>} />
+            <Route exect path="about" element={<About heading="About Swiggy" city="chandigarh"/>} />
             <Route exect path="restaurant/:resid" element={<Restaurant />} />
           </Routes>
         </Suspense>
