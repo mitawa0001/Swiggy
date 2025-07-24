@@ -44,4 +44,4 @@ About.propTypes = {
     city: PropTypes.string.isRequired,
 };
 
-export default Layout(About);
+export default About;

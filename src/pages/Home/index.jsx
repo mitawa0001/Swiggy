@@ -1,8 +1,8 @@
 import Card from "../../components/Cards/ResCard";
 
 const Home = () => {
-        return (
-            <Card />
+    return (
+        <Card />
     )
 }
 export default Home;

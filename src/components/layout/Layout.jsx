@@ -5,9 +5,11 @@ const Layout = () => {
     return (
         <>
             <Header />
-            <Outlet/>            
+            <main>
+                <Outlet />
+            </main>
         </>
-    )
-}
+    );
+};
 
 export default Layout;

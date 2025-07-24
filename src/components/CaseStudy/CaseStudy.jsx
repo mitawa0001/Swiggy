@@ -63,4 +63,4 @@ const CaseStudy = () => {
         </>
     )
 }
-export default Layout(CaseStudy);
+export default CaseStudy;

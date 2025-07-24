@@ -7,20 +7,20 @@ import { useState, useContext } from 'react';
 import UserContext from '../../utils/UserContext';
 
 const Header = () => {
-    const [loginbtn, setloginbtn] = useState("Login");
+    const [loginBtn, setLoginBtn] = useState("Login");
+    const { loggedInUser } = useContext(UserContext);
 
-    const handleLoginbtn = () => {
-        loginbtn == "Login" ? setloginbtn("Logout") : setloginbtn("Login")
+    const handleLoginBtn = () => {
+        setLoginBtn(loginBtn === "Login" ? "Logout" : "Login");
     };
 
-    const {loggedInUser } = useContext(UserContext)
-    console.log("loggendInUserloggendInUser",loggedInUser);
-    
     return (
         <>
-            <Navbar expand="lg" className="navbar sticky-top navbar-expand-lg bg-light">
+            <Navbar expand="lg" className="navbar sticky-top bg-light">
                 <Container fluid>
-                    <Navbar.Brand as={Link} to="/"><img src={Swiggy} alt='logo' width="100%" height="100%" /></Navbar.Brand>
+                    <Navbar.Brand as={Link} to="/">
+                        <img src={Swiggy} alt="Swiggy Logo" width="100%" height="100%" />
+                    </Navbar.Brand>
                     <Navbar.Toggle aria-controls="navbarScroll" />
                     <Navbar.Collapse id="navbarScroll">
                         <Nav
@@ -29,18 +29,25 @@ const Header = () => {
                             navbarScroll
                         >
                             <Nav.Link as={Link} to="/">Home</Nav.Link>
-                            <Nav.Link as={Link} to="/casestudy">CaseStudy</Nav.Link>
+                            <Nav.Link as={Link} to="/casestudy">Case Study</Nav.Link>
                             <Nav.Link as={Link} to="/restaurant/resid">Restaurant</Nav.Link>
                             <Nav.Link as={Link} to="/about">About</Nav.Link>
                         </Nav>
                     </Navbar.Collapse>
-                    <form className="d-flex">
-                        <button className='btn btn-primary' type="button" onClick={handleLoginbtn}>{loginbtn}</button>
-                        <li className=''>{loggedInUser}</li>
-                    </form>
+                    <div className="d-flex align-items-center">
+                        <button
+                            className="btn btn-primary me-2"
+                            type="button"
+                            onClick={handleLoginBtn}
+                        >
+                            {loginBtn}
+                        </button>
+                        <span className="navbar-text">
+                            {loggedInUser || "Guest"}
+                        </span>
+                    </div>
                 </Container>
             </Navbar>
-            <Outlet />
         </>
     );
 };
