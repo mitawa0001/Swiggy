@@ -3,16 +3,26 @@ import Layout from "../../components/layout/Layout";
 import PropTypes from "prop-types";
 import AboutClass from "./AboutClass";
 import { Component } from "react";
+import UserContext from "../../utils/UserContext";
+import { useContext } from "react";
+
+
+
+
+
 
 class About extends Component {
     constructor(props) {
         super(props)
 
-        console.log("Constructor parent");
     }
+
+
     render() {
         console.log("render parent");
-
+        <UserContext.Consumer>
+            {(loggedInUser) => { <h1>{loggedInUser}</h1>}};
+        </UserContext.Consumer>
         return (
             <Container className="my-5">
                 <h2>About main</h2>
@@ -21,8 +31,10 @@ class About extends Component {
                     Ratione, consequatur ut!
                 </p>
                 <AboutClass heading=" child 1" />
+
                 <AboutClass heading=" child 2" />
             </Container>
+            
         )
     }
 }

@@ -1,12 +1,14 @@
-import { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import Layout from "../../components/layout/Layout";
 import SimmerUi from "../../utils/SimmerUi";
 import "./style.css";
 import { useParams } from "react-router-dom";
 import { CDN_Link } from "../../utils/mockdata";
 import useRestrauntMenu from "../../utils/useRestroMenu";
+import UserContext from "../../utils/UserContext";
 
 const Restaurant = () => {
+    const { userGender } = useContext(UserContext)
     const { resid } = useParams();
     const resInfo = useRestrauntMenu(resid);  // Fetching restaurant menu info from custom hook
 
@@ -30,6 +32,7 @@ const Restaurant = () => {
             </div>
 
             <h3 className="fw-bold my-4">Recommended</h3>
+            <h4>{userGender}</h4>
             {itemcards?.itemCards?.map((item, id) => (
                 <div key={id} className="details-main">
                     <div>
@@ -49,4 +52,4 @@ const Restaurant = () => {
     );
 };
 
-export default Layout(Restaurant);
+export default Restaurant;

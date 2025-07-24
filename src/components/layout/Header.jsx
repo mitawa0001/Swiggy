@@ -3,7 +3,8 @@ import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import { Outlet, Link } from "react-router-dom";
 import Swiggy from "../../assets/sw.svg";
-import { useState } from 'react';
+import { useState, useContext } from 'react';
+import UserContext from '../../utils/UserContext';
 
 const Header = () => {
     const [loginbtn, setloginbtn] = useState("Login");
@@ -12,6 +13,9 @@ const Header = () => {
         loginbtn == "Login" ? setloginbtn("Logout") : setloginbtn("Login")
     };
 
+    const {loggedInUser } = useContext(UserContext)
+    console.log("loggendInUserloggendInUser",loggedInUser);
+    
     return (
         <>
             <Navbar expand="lg" className="navbar sticky-top navbar-expand-lg bg-light">
@@ -32,6 +36,7 @@ const Header = () => {
                     </Navbar.Collapse>
                     <form className="d-flex">
                         <button className='btn btn-primary' type="button" onClick={handleLoginbtn}>{loginbtn}</button>
+                        <li className=''>{loggedInUser}</li>
                     </form>
                 </Container>
             </Navbar>

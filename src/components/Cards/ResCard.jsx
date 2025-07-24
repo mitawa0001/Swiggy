@@ -1,8 +1,9 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import "./style.css";
 import { Button } from "react-bootstrap";
 import SimmerUi from "../../utils/SimmerUi";
 import { Link } from "react-router-dom";
+import UserContext from "../../utils/UserContext";
 
 
 const ResCard = () => {
@@ -10,6 +11,10 @@ const ResCard = () => {
     const [resData, setResData] = useState([]);
     const [filteredlistResData, setFilteredlistResData] = useState([]);
     const [restoSearch, setRestoSearch] = useState("");
+
+    const { loggedInUser }  = useContext(UserContext)
+    // console.log("loggendInUser",loggedInUser);
+    
 
     const handleFilter = () => {
         const filteredData = resData.filter(
@@ -106,6 +111,7 @@ const ResCard = () => {
                                             </div>
                                             <h3 className="card__price">{item.info.avgRating} <span className="mx-2">{item.info.sla.slaString}</span></h3>
                                             <h3 className="card__price">{item.info.areaName}</h3>
+                                            <h3>{loggedInUser}</h3>
                                         </div>
                                     </article>
                                 </Link>

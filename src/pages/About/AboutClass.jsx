@@ -11,13 +11,22 @@ class AboutClass extends Component {
             name: "naresh",
             negativeCount: 2,
         }
+        // let alp = "Ironman";
+        // let alp2 = `this is my name:- ${alp}`;
+        // console.log(alp2);
+
         console.log("Constructor 1");
     }
+
     componentDidMount() {
         console.log("componment child 2");
 
 
     }
+
+
+
+
     render() {
         const { heading } = this.props;
         const { counting, negativeCount } = this.state;
