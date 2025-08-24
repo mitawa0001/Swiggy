@@ -53,7 +53,9 @@ const ResCard = () => {
             const fetchedData = json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants || [];
             setResData(fetchedData);
             setFilteredlistResData(fetchedData);
+
             console.log(json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
+            
         } catch (error) {
             console.error("Failed to fetch data", error);
         }

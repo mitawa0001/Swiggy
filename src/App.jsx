@@ -14,7 +14,7 @@ function App() {
   const [loggedInUser, setLoggedInUser] = useState();
   useEffect(() => {
     setLoggedInUser("Swiggy User");
-  }, []); 
+  }, []);
   return (
     <Suspense fallback={<>Loading Page...</>}>
       <UserContext.Provider value={{ loggedInUser }}>
@@ -22,7 +22,7 @@ function App() {
           <Route element={<Layout />}>
             <Route index element={<Home />} />
             <Route path="casestudy" element={<CaseStudy />} />
-            <Route path="about" element={<About heading="About Swiggy" city="chandigarh" />} />
+            <Route path="about" element={<About heading="About Swiggy" city="Chandigarh" />} />
             <Route path="restaurant/:resid" element={<Restaurant />} />
           </Route>
         </Routes>
