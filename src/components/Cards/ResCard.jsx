@@ -1,13 +1,20 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import "./style.css";
 import { Button } from "react-bootstrap";
 import SimmerUi from "../../utils/SimmerUi";
+import { Link } from "react-router-dom";
+import UserContext from "../../utils/UserContext";
+
 
 const ResCard = () => {
     const CDN_Link = "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/";
     const [resData, setResData] = useState([]);
     const [filteredlistResData, setFilteredlistResData] = useState([]);
     const [restoSearch, setRestoSearch] = useState("");
+
+    const { loggedInUser }  = useContext(UserContext)
+    // console.log("loggendInUser",loggedInUser);
+    
 
     const handleFilter = () => {
         const filteredData = resData.filter(
@@ -46,6 +53,9 @@ const ResCard = () => {
             const fetchedData = json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants || [];
             setResData(fetchedData);
             setFilteredlistResData(fetchedData);
+
+            console.log(json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
+            
         } catch (error) {
             console.error("Failed to fetch data", error);
         }
@@ -93,24 +103,28 @@ const ResCard = () => {
                     <div className="Bhoverboxrow">
                         {filteredlistResData.map((item, id) => (
                             <div className="col-lg-3 col-md-6 col-sm-12 mt-5" key={id}>
-                                <article className="card1">
-                                    <img className="card__image" src={CDN_Link + item.info.cloudinaryImageId} alt={item.info.name} />
-                                    <div className="card__data">
-                                        <div className="card__info">
-                                            <h2>{item.info.name}</h2>
-                                            <p>{item.info.cuisines.join(", ")}</p>
+                                <Link to={"/restaurant/" + item.info.id} >
+                                    <article className="card1">
+                                        <img className="card__image" src={CDN_Link + item.info.cloudinaryImageId} alt={item.info.name} />
+                                        <div className="card__data">
+                                            <div className="card__info">
+                                                <h2>{item.info.name}</h2>
+                                                <p>{item.info.cuisines.join(", ")}</p>
+                                            </div>
+                                            <h3 className="card__price">{item.info.avgRating} <span className="mx-2">{item.info.sla.slaString}</span></h3>
+                                            <h3 className="card__price">{item.info.areaName}</h3>
+                                            <h3>{loggedInUser}</h3>
                                         </div>
-                                        <h3 className="card__price">{item.info.avgRating} <span className="mx-2">{item.info.sla.slaString}</span></h3>
-                                        <h3 className="card__price">{item.info.areaName}</h3>
-                                    </div>
-                                </article>
+                                    </article>
+                                </Link>
                             </div>
                         ))}
                     </div>
                 </div>
-            </div>
+            </div >
         </>
     );
 };
+
 
 export default ResCard;

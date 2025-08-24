@@ -4,6 +4,8 @@ import Case4 from "../../assets/11.png";
 import Layout from "../layout/Layout";
 
 const CaseStudy = () => {
+
+    
     return (
         <>
             <div className="container">
@@ -61,4 +63,4 @@ const CaseStudy = () => {
         </>
     )
 }
-export default Layout(CaseStudy);
+export default CaseStudy;

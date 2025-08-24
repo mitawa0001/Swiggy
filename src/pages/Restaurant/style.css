@@ -12,3 +12,12 @@
     box-shadow: rgba(0, 0, 0, 0.04) 0px 8px 16px 0px;
     padding: 2rem;
 }
+.details-main{
+    border-bottom: solid 2px #e9e9e9;
+    display: flex;
+    justify-content: space-between;
+}
+.res-details-desc{
+    margin-bottom: 30px;
+    width: 60%;
+}
