@@ -7,9 +7,9 @@ import Home from './pages/Home';
 import Restaurant from './pages/Restaurant';
 import About from "./pages/About/About";
 import AboutClass from './pages/About/AboutClass';
+import Chip from './components/chips/chip';
 import Layout from './components/layout/Layout';
 import UserContext from './utils/UserContext';
-import Chip from './components/chips/chip';
 
 function App() {
   const [loggedInUser, setLoggedInUser] = useState();
@@ -23,6 +23,7 @@ function App() {
           <Route element={<Layout />}>
             <Route index element={<Home />} />
             <Route path="casestudy" element={<CaseStudy />} />
+            <Route path="Chip" element={< Chip />} />
             <Route path="about" element={<About heading="About Swiggy" city="Chandigarh" />} />
             <Route path="restaurant/:resid" element={<Restaurant />} />
           </Route>
@@ -30,15 +31,6 @@ function App() {
       </UserContext.Provider>
     </Suspense>
   );
-            <Route exect path="casestudy" element={<CaseStudy />} />
-            <Route exect path="chip" element={<Chip />} />
-            <Route exect path="about" element={<About heading="About Swiggy" city="chandigarh"/>} />
-            <Route exect path="restaurant/:resid" element={<Restaurant />} />
-          </Routes>
-        </Suspense>
-      </BrowserRouter>
-    </>
-  )
 }
 
 export default App;
