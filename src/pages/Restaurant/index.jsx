@@ -1,22 +1,24 @@
-import { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import Layout from "../../components/layout/Layout";
 import SimmerUi from "../../utils/SimmerUi";
 import "./style.css";
 import { useParams } from "react-router-dom";
 import { CDN_Link } from "../../utils/mockdata";
 import useRestrauntMenu from "../../utils/useRestroMenu";
+import UserContext from "../../utils/UserContext";
 import useOnlineuser from "../../utils/useOnlineuser";
 
 const Restaurant = () => {
+    const { userGender } = useContext(UserContext)
     const { resid } = useParams();
     const resInfo = useRestrauntMenu(resid);
     const online = useOnlineuser(); // Fetching restaurant menu info from custom hook
-
+    
     // Handle loading state
     if (!resInfo) return <SimmerUi />; 
 
     const itemcards = resInfo?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards[2]?.card?.card;
-
+    console.log(itemcards);
     return (
 
         <div className="container my-5">
@@ -33,6 +35,7 @@ const Restaurant = () => {
             </div>
 
             <h3 className="fw-bold my-4">Recommended { online ? "red" : "blue" }</h3>
+            <h4>{userGender}</h4>
             {itemcards?.itemCards?.map((item, id) => (
                 <div key={id} className="details-main">
                     <div>
@@ -52,4 +55,4 @@ const Restaurant = () => {
     );
 };
 
-export default Layout(Restaurant);
+export default Restaurant;

@@ -11,6 +11,8 @@ const CaseStudy = () => {
    
 
 
+
+    
     return (
         <>
             <div className="container">
@@ -68,4 +70,4 @@ const CaseStudy = () => {
         </>
     )
 }
-export default Layout(CaseStudy);
+export default CaseStudy;

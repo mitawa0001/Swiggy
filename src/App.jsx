@@ -1,21 +1,35 @@
-import { Suspense } from 'react';
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { Suspense, useEffect, useState, useContext } from 'react';
+import { Routes, Route } from "react-router-dom";
 import 'bootstrap/dist/css/bootstrap.min.css';
-import "./App.css"
+import "./App.css";
 import CaseStudy from './components/CaseStudy/CaseStudy';
 import Home from './pages/Home';
 import Restaurant from './pages/Restaurant';
 import About from "./pages/About/About";
 import AboutClass from './pages/About/AboutClass';
+import Layout from './components/layout/Layout';
+import UserContext from './utils/UserContext';
 import Chip from './components/chips/chip';
 
 function App() {
+  const [loggedInUser, setLoggedInUser] = useState();
+  useEffect(() => {
+    setLoggedInUser("Swiggy User");
+  }, []);
   return (
-    <>
-      <BrowserRouter>
-        <Suspense fallback={<>Loding Page...</>}>
-          <Routes>
+    <Suspense fallback={<>Loading Page...</>}>
+      <UserContext.Provider value={{ loggedInUser }}>
+        <Routes>
+          <Route element={<Layout />}>
             <Route index element={<Home />} />
+            <Route path="casestudy" element={<CaseStudy />} />
+            <Route path="about" element={<About heading="About Swiggy" city="Chandigarh" />} />
+            <Route path="restaurant/:resid" element={<Restaurant />} />
+          </Route>
+        </Routes>
+      </UserContext.Provider>
+    </Suspense>
+  );
             <Route exect path="casestudy" element={<CaseStudy />} />
             <Route exect path="chip" element={<Chip />} />
             <Route exect path="about" element={<About heading="About Swiggy" city="chandigarh"/>} />
@@ -27,4 +41,4 @@ function App() {
   )
 }
 
-export default App
+export default App;

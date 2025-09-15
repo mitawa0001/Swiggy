@@ -1,15 +1,15 @@
+import { Outlet } from "react-router-dom";
 import Header from "./Header";
 
-
-const Layout = (Component) => (props) => {
+const Layout = () => {
     return (
         <>
             <Header />
-            <Component {...props} />
-            
+            <main>
+                <Outlet />
+            </main>
         </>
-
-    )
-}
+    );
+};
 
 export default Layout;
