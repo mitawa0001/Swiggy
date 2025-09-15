@@ -7,6 +7,7 @@ import Home from './pages/Home';
 import Restaurant from './pages/Restaurant';
 import About from "./pages/About/About";
 import AboutClass from './pages/About/AboutClass';
+import Chip from './components/chips/chip';
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
           <Routes>
             <Route index element={<Home />} />
             <Route exect path="casestudy" element={<CaseStudy />} />
+            <Route exect path="chip" element={<Chip />} />
             <Route exect path="about" element={<About heading="About Swiggy" city="chandigarh"/>} />
             <Route exect path="restaurant/:resid" element={<Restaurant />} />
           </Routes>

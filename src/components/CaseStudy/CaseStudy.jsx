@@ -3,7 +3,14 @@ import Case1 from "../../assets/44.svg";
 import Case4 from "../../assets/11.png";
 import Layout from "../layout/Layout";
 
+
+
+
+
 const CaseStudy = () => {
+   
+
+
     return (
         <>
             <div className="container">
