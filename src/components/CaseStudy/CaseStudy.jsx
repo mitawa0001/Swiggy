@@ -2,9 +2,12 @@ import "./style.css";
 import Case1 from "../../assets/44.svg";
 import Case4 from "../../assets/11.png";
 import Layout from "../layout/Layout";
+import { useContext } from "react";
+import UserContext from "../../utils/UserContext";
 
 const CaseStudy = () => {
-
+    const {userGender} = useContext(UserContext)
+    console.log(userGender);
     
     return (
         <>
@@ -41,7 +44,7 @@ const CaseStudy = () => {
                             <div className="button1"><a href="#"> BUTTON </a></div>
                         </div>
                         <div className="Case-Desc">
-                            <div className="caseCat">Staffing</div>
+                            <div className="caseCat">{userGender}</div>
                             <h3>Transforming Software Development with Azure DevOps and Ephemeral Environments</h3>
                             <p>Unleash the power of automation and revolutionize your software development process with Azure DevOps and ephemeral environments...</p>
                         </div>

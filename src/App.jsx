@@ -12,12 +12,13 @@ import UserContext from './utils/UserContext';
 
 function App() {
   const [loggedInUser, setLoggedInUser] = useState();
+  const [userGender, setUserGender] = useState("Male");
   useEffect(() => {
     setLoggedInUser("Swiggy User");
   }, []);
   return (
     <Suspense fallback={<>Loading Page...</>}>
-      <UserContext.Provider value={{ loggedInUser }}>
+      <UserContext.Provider value={{ loggedInUser, userGender }}>
         <Routes>
           <Route element={<Layout />}>
             <Route index element={<Home />} />

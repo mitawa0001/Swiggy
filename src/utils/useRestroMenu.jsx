@@ -12,9 +12,7 @@ const useRestromenu = (resid) => {
         const data = await fetch(menu_API + resid);
         const json = await data.json();
         setresinfo(json.data);
-
     }
-
     return resinfo;
 }
 export default useRestromenu;
