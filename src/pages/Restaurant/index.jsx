@@ -6,20 +6,21 @@ import { useParams } from "react-router-dom";
 import { CDN_Link } from "../../utils/mockdata";
 import useRestrauntMenu from "../../utils/useRestroMenu";
 import UserContext from "../../utils/UserContext";
+import useOnlineuser from "../../utils/useOnlineuser";
 
 const Restaurant = () => {
     const { userGender } = useContext(UserContext);
     const { resid } = useParams();
     const resInfo = useRestrauntMenu(resid);
-    console.log('resInfo Desc', resInfo);
-    // Fetching restaurant menu info from custom hook
-
+    const online = useOnlineuser(); // Fetching restaurant menu info from custom hook
+    
     // Handle loading state
-    if (!resInfo) return <SimmerUi />;
+    if (!resInfo) return <SimmerUi />; 
 
     const itemcards = resInfo?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards[2]?.card?.card;
     console.log("itemcards", itemcards);
     return (
+
         <div className="container my-5">
             {/* Restaurant details section */}
             {/* <h3 className="fw-bold my-4">{resInfo.info.name}</h3> */}
@@ -33,7 +34,7 @@ const Restaurant = () => {
                 </div> */}
             </div>
 
-            <h3 className="fw-bold my-4">Recommended</h3>
+            <h3 className="fw-bold my-4">Recommended { online ? "red" : "blue" }</h3>
             <h4>{userGender}</h4>
             {itemcards?.itemCards?.map((item, id) => (
                 <div key={id} className="details-main">
