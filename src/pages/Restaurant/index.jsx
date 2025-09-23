@@ -18,7 +18,7 @@ const Restaurant = () => {
     if (!resInfo) return <SimmerUi />; 
 
     const itemcards = resInfo?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards[2]?.card?.card;
-    console.log(itemcards);
+    console.log("gxdfhgdf'gd", resInfo?.cards[4]?.groupedCard);
     return (
 
         <div className="container my-5">

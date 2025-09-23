@@ -12,9 +12,9 @@ const ResCard = () => {
     const [filteredlistResData, setFilteredlistResData] = useState([]);
     const [restoSearch, setRestoSearch] = useState("");
 
-    const { loggedInUser }  = useContext(UserContext)
+    const { loggedInUser } = useContext(UserContext)
     // console.log("loggendInUser",loggedInUser);
-    
+
 
     const handleFilter = () => {
         const filteredData = resData.filter(
@@ -48,14 +48,14 @@ const ResCard = () => {
 
     const ApiFetch = async () => {
         try {
-            const response = await fetch("https://www.swiggy.com/dapi/restaurants/list/v5?lat=30.7046486&lng=76.71787259999999&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING&page_size=30");
+            const response = await fetch("https://www.swiggy.com/dapi/restaurants/list/v5?lat=28.65420&lng=77.23730&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING");
             const json = await response.json();
-            const fetchedData = json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants || [];
+            const fetchedData = json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants || [];
             setResData(fetchedData);
             setFilteredlistResData(fetchedData);
 
-            console.log(json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
-            
+            console.log(json?.data);
+
         } catch (error) {
             console.error("Failed to fetch data", error);
         }
